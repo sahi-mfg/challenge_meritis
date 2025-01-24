@@ -1,3 +1,8 @@
+import os
+
+print(os.getcwd())
+
+
 def find_most_frequent(data: list[int]) -> dict[int, int]:
     frequency: dict[int, int] = {}
     for i in data:
@@ -9,7 +14,10 @@ def find_most_frequent(data: list[int]) -> dict[int, int]:
 
 
 if __name__ == "__main__":
-    with open("data.txt", "r") as f:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    print(script_dir)
+    file_path = os.path.join(script_dir, "../data/2025/data.txt")
+    with open(file_path, "r") as f:
         raw_data = f.read()
 
     data: list[int] = list(map(int, raw_data.split()))
